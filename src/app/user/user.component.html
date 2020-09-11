@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="form-group">
+      <input type="text" name="githubUser" placeholder="Username" [(ngModel)]="userName">&nbsp;
+      <button type="submit" class="btn btn-success" (click)="submitUser()">Search</button>
+    </div>
+    <ul>
+      <li>
+      <img src="{{user.avatar_url}}">
+      <br><br>
+    <div class="row">
+        <div class="col-md-6">
+          <h5>Profile</h5><br>
+          <p><strong> Name: {{user.name}}</strong></p>
+          <p> Location:{{user.location}} </p>
+          <p>Followers:{{user.followers}}</p>
+          <p>Following:{{user.following}}</p>
+          <p>Repositories Number:{{user.public_repos}}<br>
+          <a href="{{user.html_url}}" target="_blank" class="btn btn-warning">view on Github</a><br><br>
+        </div>
+    <div class="col-md-6">
+      <h5>Repositories</h5><br>
+        <ul>
+          <li *ngFor="let repo of repository">{{repo.name}} &nbsp;<a href="{{repo.html_url}}" target="blank" class="btn btn-warning pull-rirht">View on
+            Github</a> <br>{{repo.description}} <br><br></li>
+        </ul>
+    </div>
+    </div>        
+    </li>
+  </ul>
+    <p><u>Data requested on</u>: {{user.completeDate|date|date :"fullDate"|uppercase}} at Timezone: {{user.completeDate|date|date :"mediumTime"}} </p><br>
+</div>
