@@ -10,5 +10,7 @@ export class RepositoryService {
 
   constructor(private http:HttpClient) { }
 
-  getRepos
+  getRepos(){
+    return this.http.get(`https://api.github.com/users/repos?api_key=%${environment.apikey}`)
+  }
 }
